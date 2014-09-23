@@ -110,6 +110,8 @@
         function _checkNextHref(data) {
             data = data || $e.data('jscroll');
             if (!data || !data.nextHref) {
+                var $next = $e.find(_options.nextSelector).first();
+                _nextWrap($next);
                 _debug('warn', 'jScroll: nextSelector not found - destroying');
                 _destroy();
                 return false;
