@@ -45,7 +45,7 @@
             _nextHref = $.trim(_$next.attr('href') + ' ' + _options.contentSelector);
 
         // Initialization
-        if (_nextHref != 'undefined') {
+        if (_nextHref.substr(0, 9) != 'undefined') {
             $e.data('jscroll', $.extend({}, _data, {initialized: true, waiting: false, nextHref: _nextHref, refresh: _options.refresh}));
             _wrapInnerContent();
             _preloadImage();
