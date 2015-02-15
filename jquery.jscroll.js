@@ -25,7 +25,8 @@
             nextSelector: 'a:last',
             contentSelector: '',
             pagingSelector: '',
-            callback: false
+            callback: false,
+            paddingSelector: '.jscroll-inner'
         }
     };
 
@@ -99,9 +100,10 @@
                 iContainerTop = parseInt($e.css('paddingTop')) + borderTopWidthInt,
                 iTopHeight = _isWindow ? _$scroll.scrollTop() : $e.offset().top,
                 innerTop = $inner.length ? $inner.offset().top : 0,
-                iTotalHeight = Math.ceil(iTopHeight - innerTop + _$scroll.height() + iContainerTop);
+                iTotalHeight = Math.ceil(iTopHeight - innerTop + _$scroll.height() + iContainerTop),
+                $resultsContainer = $(_options.paddingSelector);
 
-            if (!data.waiting && iTotalHeight + _options.padding >= $inner.outerHeight()) {
+            if (!data.waiting && iTotalHeight + _options.padding >= $resultsContainer.outerHeight()) {
                 //data.nextHref = $.trim(data.nextHref + ' ' + _options.contentSelector);
                 _debug('info', 'jScroll:', $inner.outerHeight() - iTotalHeight, 'from bottom. Loading next request...');
                 return _load();
