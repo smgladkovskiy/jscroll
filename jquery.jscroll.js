@@ -45,7 +45,7 @@
             _$scroll = _isWindow ? _$window : $e,
             _nextHref = $.trim(_$next.attr('href') + ' ' + _options.contentSelector);
 
-        if (typeof _$next.attr('href') !== 'undefined' && _$next.attr('href') ){
+        if (typeof _$next.attr('href') !== 'undefined' && _nextHref.substr(0, 9) != 'undefined' ){
             // Initialization just if href is defined
             $e.data('jscroll', $.extend({}, _data, {initialized: true, waiting: false, nextHref: _nextHref, refresh: _options.refresh}));
             _wrapInnerContent();
